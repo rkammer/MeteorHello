@@ -1,0 +1,38 @@
+<head>
+  <title>resolutions</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Resolutions App</h1>
+
+     <label class="HideFinished">
+       <input type="checkbox" checked="{{HideFinished}}">Hide Finished Tasks
+     </label>
+      {{#if currentUser}}
+      <form class="NewResolution">
+          	<input type="text" name="Title" placeholder="A new resolution">
+            <input type="submit" value="Submit">
+      </form>
+      {{/if}}
+      <button id="TestButton">Touch me, I'm a slut!</button>
+    </header>
+    <ul>
+      {{#each resolutions}}
+        {{> resolution}}
+      {{/each}}
+    </ul>
+
+    {{> loginButtons}}
+  </div>
+</body>
+
+<template name="resolution">
+    <li>
+      <input type="checkbox" checked="{{Checked}}" class="ToggleChecked">
+      <span class="text">{{_id}} - {{Title}} - {{CreatedAt}}</span>
+      <button class="delete">Remove</button>
+    </li>
+</template>
